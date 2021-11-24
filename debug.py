@@ -1,3 +1,4 @@
-str = 'what9'
-str = str.replace('9','')
-print(str)
+import re
+str = 'what is your name. Dhruv/Meduri'
+words = re.split(r"[\s \n - _ / . ? ,]",str)
+print(words)
