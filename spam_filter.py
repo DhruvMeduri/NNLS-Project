@@ -73,7 +73,9 @@ for i in range(100):
 clf = svm.SVC()
 clf.fit(input, output)
 arr = clf.support_vectors_
+
 #print(arr)
 #print(len(arr))
+# This is to predict
 
 #print(dict)
