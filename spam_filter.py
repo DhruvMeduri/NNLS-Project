@@ -74,8 +74,32 @@ clf = svm.SVC()
 clf.fit(input, output)
 arr = clf.support_vectors_
 
-#print(arr)
-#print(len(arr))
-# This is to predict
-
-#print(dict)
+# Now to run the demo
+demo_input = np.zeros(len(final_word_list))
+words_in_mail = []
+file = open("demo_mail.txt", "r")
+para = file.read()
+file.close()
+print(para)
+words = re.split(r"[\s \n - _ / . ? , ! \' \" : ;]",para)
+for word in words:
+    word = word.lower() # we make all the words lowercase
+    word = word.replace('(','')
+    word = word.replace(')','')
+    word = word.replace('*','')
+    word = word.replace('#','')
+    check = 0
+    for crap in unwanted:
+        if crap in word:
+            check = 1
+    if (check == 0) and (word not in bs) and (len(word)<20) and  (len(word)>1):
+       words_in_mail.append(word)
+print(words_in_mail)
+for k in range(len(final_word_list)):
+    count = 0
+    for word in words_in_mail:
+        if word == final_word_list[k]:
+            count = count + 1
+    demo_input[k] = count
+print(demo_input)
+print(clf.predict([demo_input]))
