@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import re
 from sklearn import svm
-data = pd.read_csv('spam.csv',encoding = 'unicode_escape',keep_default_na=False)
+data = pd.read_csv('database_UCI.csv',encoding = 'unicode_escape',keep_default_na=False)
 #Making Inputs
 lst = []
 unwanted = ['=','http','@','ly','__','--','|','_','.)','..','www','com','<','>','[',']','{','}','0','1','2','3','4','5','6','7','8','9']
@@ -80,7 +80,7 @@ arr = clf.support_vectors_
 # Now to run the demo
 demo_input = np.zeros(len(final_word_list))
 words_in_mail = []
-file = open("demo_message2.txt", "r")
+file = open("demo_message.txt", "r")
 para = file.read()
 file.close()
 #print(para)
